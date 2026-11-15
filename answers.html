@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#0b0a12" />
+<title>GTA VI — My Answers</title>
+<style>
+  :root {
+    --pink: #ff2d78; --purple: #8b3dff; --orange: #ffb020; --green: #2ee6a8;
+    --sunset: linear-gradient(135deg, #ff2d78, #8b3dff 55%, #ffb020);
+    --bg: #0b0a12; --card: rgba(255,255,255,.06); --line: rgba(255,255,255,.12);
+    --text: #f4f1ff; --muted: #b9b3d6;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text); background: var(--bg); min-height: 100vh;
+  }
+  body::before {
+    content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background:
+      radial-gradient(700px 420px at 15% -5%, rgba(255,45,120,.28), transparent 60%),
+      radial-gradient(650px 420px at 85% 0%, rgba(139,61,255,.26), transparent 60%),
+      radial-gradient(600px 500px at 50% 110%, rgba(255,176,32,.16), transparent 60%),
+      var(--bg);
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 20px 16px calc(40px + env(safe-area-inset-bottom)); }
+  .topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .back {
+    display: inline-flex; align-items: center; gap: 7px; padding: 11px 18px; border-radius: 999px;
+    background: var(--sunset); color: #fff; font-weight: 800; font-size: 14.5px; text-decoration: none;
+    box-shadow: 0 8px 22px rgba(255,45,120,.4);
+  }
+  .back:active { transform: scale(.97); }
+  .tag { color: var(--muted); font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+  h1 {
+    font-size: clamp(38px, 8vw, 64px); line-height: .95; margin: 26px 0 8px; letter-spacing: -.01em;
+    background: var(--sunset); -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .sub { color: var(--muted); font-size: 16.5px; line-height: 1.55; margin: 0 0 22px; max-width: 620px; }
+  .search {
+    width: 100%; padding: 15px 16px; border-radius: 14px; font-size: 16px;
+    border: 1px solid var(--line); background: rgba(0,0,0,.35); color: var(--text); outline: none;
+  }
+  .search:focus { border-color: var(--pink); box-shadow: 0 0 0 3px rgba(255,45,120,.22); }
+  .chips { display: flex; gap: 8px; flex-wrap: wrap; margin: 14px 0 6px; }
+  .chips button {
+    padding: 9px 15px; border-radius: 999px; border: 1px solid var(--line);
+    background: rgba(255,255,255,.05); color: var(--text); font-size: 13.5px; font-weight: 700; cursor: pointer;
+  }
+  .chips button.on { background: var(--sunset); border-color: transparent; }
+  .count { color: var(--muted); font-size: 13px; margin: 10px 2px 14px; }
+  .qa {
+    background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    margin-bottom: 10px; overflow: hidden;
+  }
+  .qa > button {
+    width: 100%; display: flex; align-items: center; gap: 12px; text-align: left;
+    padding: 16px 18px; background: none; border: none; color: var(--text);
+    font-size: 16px; font-weight: 700; line-height: 1.4; cursor: pointer;
+  }
+  .qa > button .cat {
+    flex-shrink: 0; font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase;
+    padding: 4px 9px; border-radius: 999px; background: rgba(255,255,255,.1); color: var(--muted);
+  }
+  .qa > button .q { flex: 1; }
+  .qa > button .pm { flex-shrink: 0; font-size: 20px; font-weight: 400; color: var(--pink); width: 20px; text-align: center; }
+  .qa .a { display: none; padding: 0 18px 17px 18px; color: #ddd8f2; font-size: 15px; line-height: 1.65; }
+  .qa.open .a { display: block; }
+  .qa.open { border-color: rgba(255,45,120,.45); }
+  .qa .a b { color: #fff; }
+  .qa .a .flag {
+    display: inline-block; font-size: 11.5px; font-weight: 800; padding: 2px 8px; border-radius: 999px;
+    background: rgba(255,176,32,.16); color: var(--orange); margin-bottom: 6px;
+  }
+  .empty { display: none; text-align: center; color: var(--muted); padding: 34px 10px; font-size: 15.5px; line-height: 1.6; }
+  footer { margin-top: 30px; color: var(--muted); font-size: 13.5px; line-height: 1.7; text-align: center; }
+  footer a { color: #fff; font-weight: 700; }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="back" href="index.html">&#8592; Back to Tracker</a>
+    <span class="tag">Vice City &bull; Leonida</span>
+  </div>
+  <h1>MY ANSWERS</h1>
+  <p class="sub">Every GTA VI question, answered. Tap a question to open it, or type in the search box to find an answer fast.</p>
+  <input class="search" id="search" type="search" placeholder="Search answers&hellip; e.g. PC, money, map" aria-label="Search answers" />
+  <div class="chips" id="chips"></div>
+  <p class="count" id="count"></p>
+  <div id="list"></div>
+  <p class="empty" id="empty">No answers match that search. Try a different word — or ask VIC in the tracker, he knows the same answers.</p>
+  <footer>
+    Answers checked against Rockstar&rsquo;s official pages, trailers and the November 2026 launch info.
+    Anything not confirmed by Rockstar is marked <b>unconfirmed</b>.<br />
+    <a href="index.html">Back to the Progress Tracker</a> &middot; Made for players, by a player.
+  </footer>
+</div>
+<script>
+(function () {
+  var QA = [
+    { c: 'general', q: 'When does GTA VI release?', a: '<b>November 19, 2026</b> — on PlayStation 5 and Xbox Series X|S. Digital preload opened November 10, physical copies (Code-in-Box) from November 12, and the game unlocks at midnight local time on November 19.' },
+    { c: 'general', q: 'Which platforms is GTA VI on?', a: '<b>PlayStation 5 and Xbox Series X|S</b> at launch. There is no native PS4 or Xbox One version — Xbox One can only play it through Xbox Cloud Gaming.' },
+    { c: 'general', q: 'Is GTA VI coming to PC?', a: '<span class="flag">NOT ANNOUNCED</span><br />Rockstar has <b>not announced a PC version or a PC date</b>. Reports of a Q1 2027 PC window are unconfirmed rumors — do not buy anything expecting a PC launch.' },
+    { c: 'general', q: 'How big is the GTA VI download?', a: 'Rockstar says the preload needs <b>up to 212 GB of free space</b>, depending on the device. Clear space before November 10 if you pre-ordered digitally.' },
+    { c: 'general', q: 'Who are the main characters?', a: '<b>Lucia Caminos</b> — fresh out of the Leonida Penitentiary — and <b>Jason Duval</b>, who lives and works in the Leonida Keys. The story follows the two of them after an easy score goes wrong.' },
+    { c: 'general', q: 'Is there crossplay between PS5 and Xbox?', a: '<span class="flag">NOT ANNOUNCED</span><br />Rockstar has <b>not announced crossplay, cross-progression or cross-buy</b> between PlayStation 5 and Xbox Series X|S. For now, each console is its own world.' },
+    { c: 'general', q: 'What frame rate does GTA VI run at?', a: 'Rockstar targets <b>30 FPS</b> on consoles. The PS5 Pro version adds PSSR upscaling and ray-traced shadows.' },
+    { c: 'general', q: 'Is there a GTA VI Online mode?', a: '<span class="flag">NOT ANNOUNCED</span><br />Rockstar has <b>not announced a multiplayer or Online mode</b> yet. The November 19 launch is the single-player story — anything about Online is rumor until Rockstar says it.' },
+    { c: 'general', q: 'Does the physical edition include a disc?', a: '<b>No.</b> The physical Standard Edition is Code-in-Box — the box contains a download code, not a game disc.' },
+    { c: 'map', q: 'Where is GTA VI set?', a: 'In <b>Leonida</b>, a fictional state modeled on Florida. Rockstar has confirmed six regions: <b>Vice City, the Leonida Keys, Grassrivers, Port Gellhorn, Ambrosia and Mount Kalaga National Park</b>.' },
+    { c: 'map', q: 'What is there to see in Vice City?', a: 'Vice City is the Miami-inspired heart of the map. Rockstar has named <b>Ocean Beach</b> (Art Deco hotels), <b>Little Cuba</b>, the <b>VC Port</b> and the <b>Tisha-Wocka flea market</b>, plus a high-rise downtown.' },
+    { c: 'map', q: 'Is there an official full map of Leonida?', a: '<b>No.</b> Rockstar has not published a complete map. Every full map you see online right now is fan-made or based on leaks — treat them as guesses, not fact.' },
+    { c: 'map', q: 'What is the story about?', a: 'Jason and Lucia have always known the deck is stacked against them. When an easy score goes wrong, they end up on the darkest side of the sunniest place in America, caught in a criminal conspiracy stretching across Leonida. That is the official synopsis.' },
+    { c: 'map', q: 'Can you switch between Jason and Lucia?', a: '<span class="flag">NOT FULLY DETAILED</span><br />Rockstar has shown both characters as playable, but the exact switching system has not been fully detailed in the official material so far.' },
+    { c: 'money', q: 'How do I make money fast in GTA VI?', a: '<b>Side jobs</b> pay steady cash between story missions, and <b>story missions</b> are the big paydays — do not rush past them. Explore for hidden cash and collectibles too, and track them in the Collectibles section of the tracker.' },
+    { c: 'money', q: 'What should I spend money on first?', a: 'Spend on <b>cars and gear first</b>. Hold off on flashy cosmetics early — a fast car and a tough car will earn their money back; a new outfit will not.' },
+    { c: 'cars', q: 'What are the best cars in GTA VI?', a: '<span class="flag">NO CONFIRMED RANKING YET</span><br />No official best-car list exists yet. The smart setup is one <b>fast street car</b> for getaways and one <b>sturdy off-roader</b> for the countryside — and check in-game performance before spending big.' },
+    { c: 'cars', q: 'Where do I find good cars?', a: 'Explore Vice City streets for street cars and the Port Gellhorn dirt tracks for off-roaders. Every ride you grab can be ticked off in the <b>Vehicles</b> section of the tracker.' },
+    { c: 'missions', q: 'I am stuck on a mission. What do I do?', a: 'Stock up on <b>ammo and armour</b> first, then try a different approach — stealth instead of loud, or the other way round. Use cover in every shootout: pop out, shoot, drop back. If a plan fails twice, change the plan, not your luck.' },
+    { c: 'missions', q: 'How many story missions are there?', a: '<span class="flag">NOT PUBLISHED</span><br />Rockstar has not published a mission count. The tracker starts you with the main story arc — tick each mission off as you finish it and your progress bar will keep the count for you.' },
+    { c: 'missions', q: 'Do I have to finish side jobs to finish the story?', a: '<b>No.</b> Side jobs are optional. They pay well and keep your skills sharp, but the story can be finished without them.' },
+    { c: 'collectibles', q: 'How do collectibles work?', a: 'Collectibles are hidden all over Leonida. Use the <b>Collectibles</b> section of the tracker to tick each one off as you find it — and write a note under it saying where you found it, so you never lose the spot.' },
+    { c: 'collectibles', q: 'Is there a full list of all collectibles?', a: '<span class="flag">NOT CONFIRMED YET</span><br />No confirmed complete list exists yet — the community is still mapping them. This page will be updated as the list becomes solid.' },
+    { c: 'tips', q: 'Any beginner tips for starting GTA VI?', a: '<b>1.</b> Explore early — learn Vice City and Leonida before rushing the story. <b>2.</b> Keep one fast car and one tough car. <b>3.</b> Do side jobs between missions for steady cash. <b>4.</b> Save before big missions. <b>5.</b> Use cover in shootouts — never stand in the open.' },
+    { c: 'tips', q: 'How do I lose the cops (wanted level)?', a: 'Break <b>line of sight</b>, then switch cars — the cops track the car as much as they track you. Alleys and the countryside help you vanish. The higher the level, the wider the search — lay low until it cools.' },
+    { c: 'tips', q: 'How does saving work — in the game and in the tracker?', a: 'In the game, use manual saves plus autosave before big missions. In the tracker, your checklist <b>saves automatically in your own browser</b> — no account, nothing uploaded anywhere.' }
+  ];
+
+  var CATS = [
+    { id: 'all', label: 'All' },
+    { id: 'general', label: 'General' },
+    { id: 'map', label: 'Map & Story' },
+    { id: 'money', label: 'Money' },
+    { id: 'cars', label: 'Cars' },
+    { id: 'missions', label: 'Missions' },
+    { id: 'collectibles', label: 'Collectibles' },
+    { id: 'tips', label: 'Tips' }
+  ];
+
+  var activeCat = 'all';
+  var query = '';
+  var listEl = document.getElementById('list');
+  var countEl = document.getElementById('count');
+  var emptyEl = document.getElementById('empty');
+  var chipsEl = document.getElementById('chips');
+
+  CATS.forEach(function (c) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.textContent = c.label;
+    if (c.id === 'all') b.classList.add('on');
+    b.addEventListener('click', function () {
+      activeCat = c.id;
+      var btns = chipsEl.querySelectorAll('button');
+      for (var i = 0; i < btns.length; i++) btns[i].classList.remove('on');
+      b.classList.add('on');
+      render();
+    });
+    chipsEl.appendChild(b);
+  });
+
+  function render() {
+    var q = query.trim().toLowerCase();
+    var shown = 0;
+    listEl.textContent = '';
+    QA.forEach(function (item, idx) {
+      if (activeCat !== 'all' && item.c !== activeCat) return;
+      var hay = (item.q + ' ' + item.a.replace(/<[^>]+>/g, ' ')).toLowerCase();
+      if (q && hay.indexOf(q) === -1) return;
+      shown++;
+      var card = document.createElement('div');
+      card.className = 'qa' + (idx === 0 && !q && activeCat === 'all' ? ' open' : '');
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      var catLabel = '';
+      CATS.forEach(function (c) { if (c.id === item.c) catLabel = c.label; });
+      var cat = document.createElement('span');
+      cat.className = 'cat';
+      cat.textContent = catLabel;
+      var qt = document.createElement('span');
+      qt.className = 'q';
+      qt.textContent = item.q;
+      var pm = document.createElement('span');
+      pm.className = 'pm';
+      pm.textContent = card.className.indexOf('open') !== -1 ? '−' : '+';
+      btn.appendChild(cat);
+      btn.appendChild(qt);
+      btn.appendChild(pm);
+      btn.addEventListener('click', function () {
+        var isOpen = card.classList.toggle('open');
+        pm.textContent = isOpen ? '−' : '+';
+      });
+      var ans = document.createElement('div');
+      ans.className = 'a';
+      ans.innerHTML = item.a;
+      card.appendChild(btn);
+      card.appendChild(ans);
+      listEl.appendChild(card);
+    });
+    countEl.textContent = shown + (shown === 1 ? ' answer' : ' answers') + (q ? ' for "' + query.trim() + '"' : '');
+    emptyEl.style.display = shown ? 'none' : 'block';
+  }
+
+  document.getElementById('search').addEventListener('input', function (e) {
+    query = e.target.value;
+    render();
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
